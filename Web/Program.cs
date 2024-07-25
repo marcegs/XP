@@ -40,6 +40,7 @@ try
     using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
     {
         var db = serviceScope.ServiceProvider.GetService<XpDbContext>();
+        db.Database.EnsureCreated();
         if (db.Database.HasPendingModelChanges()) db.Database.Migrate();
     }
     
