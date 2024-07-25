@@ -1,5 +1,8 @@
 ﻿services:
   web:
+    depends_on:
+      - sql
+      - smtp
     networks:
       - xp
     container_name: web

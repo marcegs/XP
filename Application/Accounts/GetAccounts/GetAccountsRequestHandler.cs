@@ -23,6 +23,7 @@ public class GetAccountsRequestHandler : IRequestHandler<GetAccountsRequest, Res
     {
         var account = await _context.Accounts.AsNoTracking()
             .Include(a => a.User)
+            .Where(acc => !acc.Deleted)
             .ToListAsync(cancellationToken);
 
         return new GetAccountsResponse { Account = _mapper.Map<List<AccountDTO>>(account), count = account.Count };

@@ -22,6 +22,7 @@ public class GetUsersRequestHandler : IRequestHandler<GetUsersRequest, Result<Ge
     public async Task<Result<GetUsersResponse>> Handle(GetUsersRequest request, CancellationToken cancellationToken)
     {
         var users = await _context.Users.AsNoTracking()
+            .Where(user => !user.Deleted)
             .Include(user => user.Accounts)
             .ToListAsync(cancellationToken);
 

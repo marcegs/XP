@@ -19,17 +19,21 @@ public class NewTradeRequestHandler : IRequestHandler<NewTradeRequest, Result<Ne
 
     public async Task<Result<NewTradeResponse>> Handle(NewTradeRequest request, CancellationToken cancellationToken)
     {
-        var account = await _context.Accounts.Where(acc => acc.Id == request.AccountId && !acc.Deleted).FirstOrDefaultAsync(cancellationToken);
+        var account = await _context.Accounts
+            .Where(acc => acc.Id == request.AccountId && !acc.Deleted)
+            .FirstOrDefaultAsync(cancellationToken);
         if (account == null)
         {
             var error = new EntityNotFoundError($"Account with id {request.AccountId} not found");
             return Result.Fail(error);
         }
         
-        var product = await _context.Products.Where(product => product.Id == request.ProductId && !product.Deleted).FirstOrDefaultAsync(cancellationToken);
+        var product = await _context.Products
+            .Where(product => product.Id == request.ProductId && !product.Deleted && DateTime.UtcNow < product.ExpirationDate)
+            .FirstOrDefaultAsync(cancellationToken);
         if (product == null)
         {
-            var error = new EntityNotFoundError($"Product with id {request.ProductId} not found");
+            var error = new EntityNotFoundError($"Product with id {request.ProductId} not found or expired.");
             return Result.Fail(error);
         }
 

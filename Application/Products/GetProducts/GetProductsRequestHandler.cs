@@ -21,8 +21,7 @@ public class GetProductsHandler : IRequestHandler<GetProductsRequest, Result<Get
     public async Task<Result<GetProductsResponse>> Handle(GetProductsRequest request, CancellationToken cancellationToken)
     {
         var products = await _context.Products
-            .Where(product => !product.Deleted &&         
-                              DateTime.UtcNow < product.ExpirationDate)
+            .Where(product => !product.Deleted)
             .AsNoTracking()
             .ToListAsync(cancellationToken);
 

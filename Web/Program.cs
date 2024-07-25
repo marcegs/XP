@@ -16,9 +16,9 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
     var config = builder.Configuration;
-    
+
     builder.Services.AddSerilog();
-    
+
     builder.Services.AddControllers().AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
@@ -30,23 +30,23 @@ try
     builder.Services.AddSwaggerGen();
 
     builder.Services.AddProblemDetails();
-    
+
     builder.Services.AddApplication();
     builder.Services.AddPersistence(config);
     builder.Services.AddInfra(config);
-    
+
     var app = builder.Build();
-    
+
     using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
     {
         var db = serviceScope.ServiceProvider.GetService<XpDbContext>();
-        db.Database.EnsureCreated();
+        if (!db.Database.CanConnect()) db.Database.EnsureCreated();
         if (db.Database.HasPendingModelChanges()) db.Database.Migrate();
     }
-    
+
     app.UseSwagger();
     app.UseSwaggerUI();
-    
+
     app.UseExceptionHandler();
 
     app.UseHttpsRedirection();
