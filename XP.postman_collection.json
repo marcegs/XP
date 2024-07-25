@@ -1,0 +1,1250 @@
+{
+	"info": {
+		"_postman_id": "8b28ef38-030b-4bb3-8386-5dac934471b3",
+		"name": "XP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8555959"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get Trades From Account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Accounts/:id/trades",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Accounts",
+								":id",
+								"trades"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{randomNum}}",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Accounts/:id/trades",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Accounts",
+										":id",
+										"trades"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": \"<integer>\",\n  \"sum\": \"<double>\",\n  \"trades\": [\n    {\n      \"id\": \"<integer>\",\n      \"tradeAmmount\": \"<double>\",\n      \"tradeType\": \"<string>\",\n      \"account\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"product\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"expirationDate\": \"<dateTime>\"\n      }\n    },\n    {\n      \"id\": \"<integer>\",\n      \"tradeAmmount\": \"<double>\",\n      \"tradeType\": \"<string>\",\n      \"account\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      \"product\": {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"expirationDate\": \"<dateTime>\"\n      }\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Accounts/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<integer>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Accounts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Accounts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"XP 3\",\n  \"userId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"account\": {\n    \"deleted\": \"<boolean>\",\n    \"creationDate\": \"<dateTime>\",\n    \"lastUpdate\": \"<dateTime>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"userId\": \"<integer>\",\n    \"user\": {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"birthdate\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        }\n      ]\n    },\n    \"trades\": [\n      {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"tradeType\": 0,\n        \"tradeAmmount\": \"<double>\",\n        \"accountId\": \"<integer>\",\n        \"account\": {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        \"productId\": \"<integer>\",\n        \"product\": {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"expirationDate\": \"<dateTime>\",\n          \"trades\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"tradeType\": 1,\n        \"tradeAmmount\": \"<double>\",\n        \"accountId\": \"<integer>\",\n        \"account\": {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        \"productId\": \"<integer>\",\n        \"product\": {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"expirationDate\": \"<dateTime>\",\n          \"trades\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"account\": {\n    \"deleted\": \"<boolean>\",\n    \"creationDate\": \"<dateTime>\",\n    \"lastUpdate\": \"<dateTime>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"userId\": \"<integer>\",\n    \"user\": {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"birthdate\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        }\n      ]\n    },\n    \"trades\": [\n      {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"tradeType\": 0,\n        \"tradeAmmount\": \"<double>\",\n        \"accountId\": \"<integer>\",\n        \"account\": {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        \"productId\": \"<integer>\",\n        \"product\": {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"expirationDate\": \"<dateTime>\",\n          \"trades\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"tradeType\": 1,\n        \"tradeAmmount\": \"<double>\",\n        \"accountId\": \"<integer>\",\n        \"account\": {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        \"productId\": \"<integer>\",\n        \"product\": {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\",\n          \"expirationDate\": \"<dateTime>\",\n          \"trades\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": \"<integer>\",\n  \"account\": [\n    {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"userId\": \"<integer>\",\n      \"user\": {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"birthdate\": \"<dateTime>\",\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      },\n      \"trades\": [\n        {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"tradeType\": 0,\n          \"tradeAmmount\": \"<double>\",\n          \"accountId\": \"<integer>\",\n          \"account\": {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          \"productId\": \"<integer>\",\n          \"product\": {\n            \"deleted\": \"<boolean>\",\n            \"creationDate\": \"<dateTime>\",\n            \"lastUpdate\": \"<dateTime>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"expirationDate\": \"<dateTime>\",\n            \"trades\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              }\n            ]\n          }\n        },\n        {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"tradeType\": 1,\n          \"tradeAmmount\": \"<double>\",\n          \"accountId\": \"<integer>\",\n          \"account\": {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          \"productId\": \"<integer>\",\n          \"product\": {\n            \"deleted\": \"<boolean>\",\n            \"creationDate\": \"<dateTime>\",\n            \"lastUpdate\": \"<dateTime>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"expirationDate\": \"<dateTime>\",\n            \"trades\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"userId\": \"<integer>\",\n      \"user\": {\n        \"deleted\": \"<boolean>\",\n        \"creationDate\": \"<dateTime>\",\n        \"lastUpdate\": \"<dateTime>\",\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"birthdate\": \"<dateTime>\",\n        \"accounts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          }\n        ]\n      },\n      \"trades\": [\n        {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"tradeType\": 1,\n          \"tradeAmmount\": \"<double>\",\n          \"accountId\": \"<integer>\",\n          \"account\": {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          \"productId\": \"<integer>\",\n          \"product\": {\n            \"deleted\": \"<boolean>\",\n            \"creationDate\": \"<dateTime>\",\n            \"lastUpdate\": \"<dateTime>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"expirationDate\": \"<dateTime>\",\n            \"trades\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              }\n            ]\n          }\n        },\n        {\n          \"deleted\": \"<boolean>\",\n          \"creationDate\": \"<dateTime>\",\n          \"lastUpdate\": \"<dateTime>\",\n          \"id\": \"<integer>\",\n          \"tradeType\": 1,\n          \"tradeAmmount\": \"<double>\",\n          \"accountId\": \"<integer>\",\n          \"account\": {\n            \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n          },\n          \"productId\": \"<integer>\",\n          \"product\": {\n            \"deleted\": \"<boolean>\",\n            \"creationDate\": \"<dateTime>\",\n            \"lastUpdate\": \"<dateTime>\",\n            \"id\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"expirationDate\": \"<dateTime>\",\n            \"trades\": [\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              },\n              {\n                \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Produto\",\n  \"expirationDate\": \"2024-07-24T03:17:03.364\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"expirationDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"product\": {\n    \"deleted\": \"<boolean>\",\n    \"creationDate\": \"<dateTime>\",\n    \"lastUpdate\": \"<dateTime>\",\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\",\n    \"trades\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Trade detected>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"4\",\n  \"name\": \"Produto 5\",\n  \"expirationDate\": \"2024-07-24T03:17:03.364\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"expirationDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"product\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"expirationDate\": \"<dateTime>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"products\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"expirationDate\": \"<dateTime>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Product/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<integer>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "CheckExpired",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Product/checkExpired",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Product",
+								"checkExpired"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trade",
+			"item": [
+				{
+					"name": "buy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountId\": \"1\",\n  \"productId\": \"1\",\n  \"tradeAmmount\": \"5\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Trade/buy",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Trade",
+								"buy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"accountId\": \"<integer>\",\n  \"productId\": \"<integer>\",\n  \"tradeAmmount\": \"<double>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Trade/buy",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Trade",
+										"buy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				},
+				{
+					"name": "sell",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountId\": \"1\",\n  \"productId\": \"1\",\n  \"tradeAmmount\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Trade/sell",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Trade",
+								"sell"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"accountId\": \"<integer>\",\n  \"productId\": \"<integer>\",\n  \"tradeAmmount\": \"<double>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Trade/sell",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Trade",
+										"sell"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Marcelo\",\n  \"birthdate\": \"2024-07-24T03:17:03.364Z\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"birthdate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"user\": {\n    \"deleted\": \"<boolean>\",\n    \"creationDate\": \"<dateTime>\",\n    \"lastUpdate\": \"<dateTime>\",\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"birthdate\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"birthdate\": \"<dateTime>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"birthdate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"user\": {\n    \"deleted\": \"<boolean>\",\n    \"creationDate\": \"<dateTime>\",\n    \"lastUpdate\": \"<dateTime>\",\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"birthdate\": \"<dateTime>\",\n    \"accounts\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": \"<integer>\",\n  \"user\": [\n    {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"birthdate\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        }\n      ]\n    },\n    {\n      \"deleted\": \"<boolean>\",\n      \"creationDate\": \"<dateTime>\",\n      \"lastUpdate\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"birthdate\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Account detected>\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<integer>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.collectionVariables.set (\"randomNum\", _.random (1,5));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5141"
+		},
+		{
+			"key": "randomNum",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,33 @@
+﻿services:
+  web:
+    networks:
+      - xp
+    container_name: web
+    image: web
+    build:
+      context: .
+      dockerfile: Web/Dockerfile
+    ports:
+      - "8080:8080"
+  sql:
+    networks:
+      - xp
+    container_name: sql
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Password123!@#"
+      ACCEPT_EULA: "Y"
+  smtp:
+    networks:
+      - xp
+    container_name: smtp
+    image: rnwood/smtp4dev
+    ports:
+      - "5000:80"
+      - "2525:25"
+
+networks:
+  xp:
+    driver: bridge
