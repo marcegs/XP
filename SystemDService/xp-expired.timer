@@ -1,0 +1,9 @@
+[Unit]
+Description=Check for expired products
+Requires=xp-expired.service
+[Timer]
+Unit=xp-expired.service
+OnUnitInactiveSec=5s
+AccuracySec=1s
+[Install]
+WantedBy=timers.target

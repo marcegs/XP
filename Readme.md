@@ -14,4 +14,13 @@ docker compose run
 
 ## Como utilizar:
 
-Podemos testar a aplicação de forma mais facil utliziando o Collection do postman que está na raiz do projeto.
+### O sistema foi desenvolvido da seguinte maneira:
+
+- Cada usuario tem uma ou mais contas.
+- Produtos existem de forma independente.
+- Uma conta pode "comprar" ou "vender" um produto
+- Cada movimentação feita por uma conta é gerado uma "Trade"
+
+Podemos simplificar os testes da aplicação utilizando a coleção do Postman que está localizada na raiz do projeto.
+
+O envio de e-mails é realizado por meio de um serviço que, para fins de demonstração, está configurado para disparar a cada 5 segundos, dentro da pasta SystemDService.

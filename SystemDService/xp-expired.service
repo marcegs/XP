@@ -1,0 +1,9 @@
+[Unit]
+Description=Check expired product
+Wants=xp-expired.timer
+[Service]
+ExecStart=/home/marcelogs/.local/share/systemd/user/xp-expired.sh
+WorkingDirectory=/home/marcelogs/.local/share/systemd/user/
+Slice=xp-expired.slice
+[Install]
+WantedBy=multi-user.target
