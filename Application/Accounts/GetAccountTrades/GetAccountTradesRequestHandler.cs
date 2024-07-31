@@ -36,7 +36,7 @@ public class GetAccountTradesRequestHandler : IRequestHandler<GetAccountTradesRe
                 .AsNoTracking()
                 .Where(acc => acc.Id == request.Id && !acc.Deleted)
                 .FirstOrDefaultAsync(cancellationToken);
-            if (account != null) _memoryCache.Set<Account>($"account_{request.Id}", account, TimeSpan.FromSeconds(2));
+            if (account != null) _memoryCache.Set<Account>($"account_{request.Id}", account, TimeSpan.FromSeconds(50));
         }
 
         if (account == null)
@@ -52,7 +52,7 @@ public class GetAccountTradesRequestHandler : IRequestHandler<GetAccountTradesRe
             trades = await _context.Trades.AsNoTracking()
                 .Where(trade => trade.AccountId == request.Id && !trade.Deleted)
                 .ToListAsync(cancellationToken);
-            _memoryCache.Set<List<Trade>>($"tradesByAccountId_{request.Id}", trades, TimeSpan.FromSeconds(2));
+            _memoryCache.Set<List<Trade>>($"tradesByAccountId_{request.Id}", trades, TimeSpan.FromSeconds(50));
         }
 
         var totalBuy = trades.Where(a => a.TradeType == TradeType.Buy).Sum(a => a.TradeAmmount);
