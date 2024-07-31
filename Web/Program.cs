@@ -36,13 +36,7 @@ try
     builder.Services.AddInfra(config);
 
     var app = builder.Build();
-
-    using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-    {
-        var db = serviceScope.ServiceProvider.GetService<XpDbContext>();
-        if (db.Database.HasPendingModelChanges()) db.Database.Migrate();
-    }
-
+    
     app.UseSwagger();
     app.UseSwaggerUI();
 
